@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,7 +14,7 @@ import jssc.*;
  */
 public class test2 {
 
-    public static void main(String[] args) {
+    public static void main4(String[] args) {
         //Method getPortNames() returns an array of strings. Elements of the array is already sorted.
         String[] portNames = SerialPortList.getPortNames();
         for (int i = 0; i < portNames.length; i++) {
@@ -22,8 +23,8 @@ public class test2 {
 
     }
 
-    public static void main2(String[] args) {
-        SerialPort serial = new SerialPort("COM1");
+    public static void main(String[] args) {
+        SerialPort serial = new SerialPort("COM11");
         try {
             //Open port
             serial.openPort();
@@ -33,7 +34,7 @@ public class test2 {
                     SerialPort.STOPBITS_1,
                     SerialPort.PARITY_NONE);
             //Writes data to port
-            String message="Test";
+            String message="01L";
             serial.writeBytes(message.getBytes());
             //Read the data of 10 bytes. Be careful with the method readBytes(), if the number of bytes in the input buffer
             //is less than you need, then the method will wait for the right amount. Better to use it in conjunction with the
