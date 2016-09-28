@@ -12,7 +12,7 @@ import jssc.*;
  *
  * @author Guinness
  */
-public class test2 {
+public class Turnstile {
 
     public static void main4(String[] args) {
         //Method getPortNames() returns an array of strings. Elements of the array is already sorted.
