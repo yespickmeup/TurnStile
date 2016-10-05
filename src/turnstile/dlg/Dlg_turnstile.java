@@ -21,8 +21,10 @@ import mijzcx.synapse.desk.utils.CloseDialog;
 import mijzcx.synapse.desk.utils.KeyMapping;
 import mijzcx.synapse.desk.utils.KeyMapping.KeyAction;
 import synsoftech.fields.Field;
+import turnstile.access_logs.Access_logs;
 import turnstile.faculty_and_staffs.Faculty_and_staffs;
 import turnstile.students.Students;
+import turnstile.util.DateType;
 import turnstile.util.Port;
 
 /**
@@ -536,13 +538,18 @@ public class Dlg_turnstile extends javax.swing.JDialog {
         String id_no = jTextField1.getText();
         int exists = 0;
         int group = -1;
+        String fname = "";
+        String mname = "";
+        String lname = "";
         for (Students.to_students student : students) {
             if (id_no.equalsIgnoreCase(student.id_no)) {
                 jTextField1.setText(id_no);
                 jTextField2.setText("Student");
                 jTextField3.setText(student.year_level);
                 jXLabel2.setText(student.course);
-
+                fname = student.fname;
+                mname = student.mname;
+                lname = student.lname;
                 jXLabel1.setText("");
                 String name = " " + student.lname + ", " + student.fname + " " + student.mname;
                 jLabel2.setText(name);
@@ -556,6 +563,9 @@ public class Dlg_turnstile extends javax.swing.JDialog {
                 jTextField1.setText(id_no);
                 jTextField2.setText("Faculty");
                 jXLabel1.setText(staff.college);
+                fname = staff.fname;
+                mname = staff.mname;
+                lname = staff.lname;
                 jTextField3.setText("");
                 jXLabel2.setText("");
                 String name = " " + staff.lname + ", " + staff.fname + " " + staff.mname;
@@ -579,20 +589,32 @@ public class Dlg_turnstile extends javax.swing.JDialog {
 
         } else {
 
+//            insert to database
+            int id = 0;
+            String id_no1 = jTextField1.getText();
+
+            String year_level = jTextField3.getText();
+            String course = jXLabel2.getText();
+            String college = jXLabel1.getText();
+            int status = 1;
+            String created_by = "";
+            String updated_by = "";
+            String created_at = DateType.now();
+            String updated_at = DateType.now();
+            Access_logs.to_access_logs log = new Access_logs.to_access_logs(id, id_no1, fname, mname, lname, year_level, course, college, status, created_by, updated_by, created_at, updated_at);
+            Access_logs.add_data(log);
+//            
             String stmt = System.getProperty("stmt", "01L");
             String port = System.getProperty("port", "COM11");
             Port.command(stmt, port);
-
             String home = System.getProperty("img_path", "");
             String path_to_student = home + "\\Student_ID_Number\\";
             path_to_student = path_to_student + "\\" + id_no + ".JPG";
             File f = new File(path_to_student);
             if (f.exists()) {
                 ImageIcon icon = new ImageIcon(path_to_student);
-
                 ImageIcon imageIcon = new ImageIcon(icon.getImage().getScaledInstance(320, 320, Image.SCALE_DEFAULT));
                 jLabel1.setIcon(imageIcon);
-
             } else {
                 ImageIcon imageIcon = new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/turnstile/img/user-icon (Custom).png")).getImage().getScaledInstance(320, 320, Image.SCALE_DEFAULT));
                 jLabel1.setIcon(imageIcon);
@@ -613,7 +635,7 @@ public class Dlg_turnstile extends javax.swing.JDialog {
 
             @Override
             public void run() {
-                System.out.println("interval: " + interval);
+//                System.out.println("interval: " + interval);
                 if (interval == 3) {
                     timer.cancel();
                     interval = 0;

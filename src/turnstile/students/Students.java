@@ -36,8 +36,9 @@ public class Students {
         public final String updated_by;
         public final String created_at;
         public final String updated_at;
+        public boolean selected;
 
-        public to_students(int id, String id_no, String fname, String mname, String lname, String year_level, String course, int status, String created_by, String updated_by, String created_at, String updated_at) {
+        public to_students(int id, String id_no, String fname, String mname, String lname, String year_level, String course, int status, String created_by, String updated_by, String created_at, String updated_at, boolean selected) {
             this.id = id;
             this.id_no = id_no;
             this.fname = fname;
@@ -50,7 +51,17 @@ public class Students {
             this.updated_by = updated_by;
             this.created_at = created_at;
             this.updated_at = updated_at;
+            this.selected = selected;
         }
+
+        public boolean isSelected() {
+            return selected;
+        }
+
+        public void setSelected(boolean selected) {
+            this.selected = selected;
+        }
+
     }
 
     public static void add_data(to_students to_students) {
@@ -221,6 +232,26 @@ public class Students {
         }
     }
 
+    public static void delete_data(List<to_students> to_students1) {
+        try {
+            Connection conn = MyConnection.connect();
+            for (to_students to_students : to_students1) {
+                String s0 = "delete from students  "
+                        + " where id='" + to_students.id + "' "
+                        + " ";
+
+                PreparedStatement stmt = conn.prepareStatement(s0);
+                stmt.execute();
+            }
+
+            Lg.s(Students.class, "Successfully Deleted");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            MyConnection.close();
+        }
+    }
+
     public static List<to_students> ret_data(String where) {
         List<to_students> datas = new ArrayList();
 
@@ -258,7 +289,7 @@ public class Students {
                 String created_at = rs.getString(11);
                 String updated_at = rs.getString(12);
 
-                to_students to = new to_students(id, id_no, fname, mname, lname, year_level, course, status, created_by, updated_by, created_at, updated_at);
+                to_students to = new to_students(id, id_no, fname, mname, lname, year_level, course, status, created_by, updated_by, created_at, updated_at, false);
                 datas.add(to);
             }
             return datas;

@@ -37,6 +37,7 @@ public class DateType {
     public static SimpleDateFormat day_and_time = new SimpleDateFormat("MMMMMMMMMM dd, yyyy HH:mm aa");
     public static SimpleDateFormat slash = new SimpleDateFormat("MM/dd/yyyy");
     public static SimpleDateFormat slash_w_time = new SimpleDateFormat("MM/dd/yyyy HH:mm aa");
+    public static SimpleDateFormat slash_w_time2 = new SimpleDateFormat("MM/dd/yyyy hh:mm aa");
     public static SimpleDateFormat time3 = new SimpleDateFormat("HH:mm:ss aa");
     public static SimpleDateFormat backup = new SimpleDateFormat("MM_dd_yyyy_HH_mm_ss");
 
@@ -127,7 +128,21 @@ public class DateType {
         date = DateType.slash_w_time.format(d);
         return date;
     }
-
+public static String convert_slash_datetime4(String datetime) {
+        String date = "";
+        Date d = new Date();
+        if (datetime.isEmpty()) {
+            datetime = DateType.datetime.format(new Date());
+        }
+        try {
+            d = DateType.datetime.parse(datetime);
+        } catch (ParseException ex) {
+            Logger.getLogger(DateType.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
+        date = DateType.slash_w_time2.format(d);
+        return date;
+    }
     public static String convert_slash_datetime2(String datetime) {
         String date = "";
         Date d = new Date();

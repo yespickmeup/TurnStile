@@ -41,3 +41,21 @@ id int auto_increment primary key
 ,created_at datetime
 ,updated_at datetime
 );
+
+drop table if exists access_logs;
+create table access_logs(
+id int auto_increment primary key
+,id_no varchar(255)
+,fname varchar(255)
+,mname varchar(255)
+,lname varchar(255)
+,year_level varchar(255)
+,course varchar(255)
+,college varchar(255)
+,status int 
+,created_by varchar(255)
+,updated_by varchar(255)
+,created_at datetime
+,updated_at datetime
+);
+

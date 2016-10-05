@@ -600,7 +600,7 @@ public class Dlg_import extends javax.swing.JDialog {
                 String updated_by = "admin";
                 String created_at = DateType.now();
                 String updated_at = DateType.now();
-                Students.to_students student = new Students.to_students(id, id_no, fname, mname, lname, year_level, course, status, created_by, updated_by, created_at, updated_at);
+                Students.to_students student = new Students.to_students(id, id_no, fname, mname, lname, year_level, course, status, created_by, updated_by, created_at, updated_at,false);
                 students.add(student);
             }
             students.remove(0);
@@ -676,11 +676,11 @@ public class Dlg_import extends javax.swing.JDialog {
                 case 1:
                     return " " + tt.id_no;
                 case 2:
-                    return " " + tt.fname;
-                case 3:
-                    return " " + tt.mname;
-                case 4:
                     return " " + tt.lname;
+                case 3:
+                    return " " + tt.fname;
+                case 4:
+                    return " " + tt.mname;
                 case 5:
                     return " " + tt.year_level;
                 case 6:
@@ -713,6 +713,8 @@ public class Dlg_import extends javax.swing.JDialog {
                 final List<to_students> students = tbl_students_ALM;
                 jProgressBar1.setString("Loading...Please wait...");
                 jProgressBar1.setIndeterminate(true);
+                jButton2.setEnabled(false);
+                jButton3.setEnabled(false);
                 Thread t = new Thread(new Runnable() {
 
                     @Override
@@ -724,6 +726,8 @@ public class Dlg_import extends javax.swing.JDialog {
                         jLabel3.setText("");
                         jProgressBar1.setString("Finished...");
                         jProgressBar1.setIndeterminate(false);
+                        jButton2.setEnabled(true);
+                        jButton3.setEnabled(true);
                     }
                 });
                 t.start();
@@ -777,9 +781,9 @@ public class Dlg_import extends javax.swing.JDialog {
 //                System.out.println("id: " + list[0] + " lname: " + list[1] + " first_name: " + list[2] + " middle_name: " + list[3] + " college: " + list[4]);
                 int id = 0;
                 String id_no = list[0];
-                String fname = list[1];
+                String fname = list[2];
                 String mname = list[3];
-                String lname = list[2];
+                String lname = list[1];
                 String college = list[4];
 
                 int status = 1;
@@ -787,7 +791,7 @@ public class Dlg_import extends javax.swing.JDialog {
                 String updated_by = "admin";
                 String created_at = DateType.now();
                 String updated_at = DateType.now();
-                Faculty_and_staffs.to_faculty_and_staffs staff = new Faculty_and_staffs.to_faculty_and_staffs(id, id_no, fname, mname, lname, college, status, created_by, updated_by, created_at, updated_at);
+                Faculty_and_staffs.to_faculty_and_staffs staff = new Faculty_and_staffs.to_faculty_and_staffs(id, id_no, fname, mname, lname, college, status, created_by, updated_by, created_at, updated_at,false);
                 staffs.add(staff);
             }
             staffs.remove(0);
@@ -864,11 +868,11 @@ public class Dlg_import extends javax.swing.JDialog {
                 case 1:
                     return "  " + tt.id_no;
                 case 2:
-                    return "  " + tt.fname;
-                case 3:
-                    return "  " + tt.mname;
-                case 4:
                     return "  " + tt.lname;
+                case 3:
+                    return "  " + tt.fname;
+                case 4:
+                    return "  " + tt.mname;
                 case 5:
                     return "  " + tt.college;
                 case 6:
@@ -900,6 +904,8 @@ public class Dlg_import extends javax.swing.JDialog {
                 final List<to_faculty_and_staffs> students = tbl_faculty_and_staffs_ALM;
                 jProgressBar2.setString("Loading...Please wait...");
                 jProgressBar2.setIndeterminate(true);
+                jButton4.setEnabled(false);
+                jButton5.setEnabled(false);
                 Thread t = new Thread(new Runnable() {
 
                     @Override
@@ -911,6 +917,8 @@ public class Dlg_import extends javax.swing.JDialog {
                         jLabel7.setText("");
                         jProgressBar2.setString("Finished...");
                         jProgressBar2.setIndeterminate(false);
+                        jButton4.setEnabled(true);
+                        jButton5.setEnabled(true);
                     }
                 });
                 t.start();

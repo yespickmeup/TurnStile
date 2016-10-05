@@ -20,9 +20,7 @@ import javax.swing.JFrame;
 import mijzcx.synapse.desk.utils.Application;
 import mijzcx.synapse.desk.utils.CloseDialog;
 import turnstile.dlg.Dlg_turnstile;
-import turnstile.util.Alert;
 import turnstile.util.Center;
-import turnstile.util.DeEncrypter;
 
 /**
  *

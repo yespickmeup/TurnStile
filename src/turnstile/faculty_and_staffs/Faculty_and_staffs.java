@@ -35,8 +35,9 @@ public class Faculty_and_staffs {
         public final String updated_by;
         public final String created_at;
         public final String updated_at;
+        public boolean selected;
 
-        public to_faculty_and_staffs(int id, String id_no, String fname, String mname, String lname, String college, int status, String created_by, String updated_by, String created_at, String updated_at) {
+        public to_faculty_and_staffs(int id, String id_no, String fname, String mname, String lname, String college, int status, String created_by, String updated_by, String created_at, String updated_at, boolean selected) {
             this.id = id;
             this.id_no = id_no;
             this.fname = fname;
@@ -48,7 +49,17 @@ public class Faculty_and_staffs {
             this.updated_by = updated_by;
             this.created_at = created_at;
             this.updated_at = updated_at;
+            this.selected = selected;
         }
+
+        public boolean isSelected() {
+            return selected;
+        }
+
+        public void setSelected(boolean selected) {
+            this.selected = selected;
+        }
+
     }
 
     public static void add_data(to_faculty_and_staffs to_faculty_and_staffs) {
@@ -211,6 +222,26 @@ public class Faculty_and_staffs {
         }
     }
 
+    public static void delete_data(List<to_faculty_and_staffs> to_faculty_and_staffs1) {
+        try {
+            Connection conn = MyConnection.connect();
+            for (to_faculty_and_staffs to_faculty_and_staffs : to_faculty_and_staffs1) {
+                String s0 = "delete from faculty_and_staffs  "
+                        + " where id='" + to_faculty_and_staffs.id + "' "
+                        + " ";
+
+                PreparedStatement stmt = conn.prepareStatement(s0);
+                stmt.execute();
+            }
+
+            Lg.s(Faculty_and_staffs.class, "Successfully Deleted");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            MyConnection.close();
+        }
+    }
+
     public static List<to_faculty_and_staffs> ret_data(String where) {
         List<to_faculty_and_staffs> datas = new ArrayList();
 
@@ -246,7 +277,7 @@ public class Faculty_and_staffs {
                 String created_at = rs.getString(10);
                 String updated_at = rs.getString(11);
 
-                to_faculty_and_staffs to = new to_faculty_and_staffs(id, id_no, fname, mname, lname, college, status, created_by, updated_by, created_at, updated_at);
+                to_faculty_and_staffs to = new to_faculty_and_staffs(id, id_no, fname, mname, lname, college, status, created_by, updated_by, created_at, updated_at, false);
                 datas.add(to);
             }
             return datas;
