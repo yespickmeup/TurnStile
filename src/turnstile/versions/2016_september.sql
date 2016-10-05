@@ -59,3 +59,15 @@ id int auto_increment primary key
 ,updated_at datetime
 );
 
+drop table if exists users;
+create table users(
+id int auto_increment primary key
+,screen_name varchar(255)
+,username varchar(255)
+,password varchar(255)
+,status int 
+,created_by varchar(255)
+,updated_by varchar(255)
+,created_at datetime
+,updated_at datetime
+);

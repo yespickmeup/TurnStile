@@ -214,7 +214,7 @@ public class Srpt_access_logs {
                     + ",count(id)"
                     + " from access_logs"
                     + " " + where;
-            System.out.println("where: " + s0);
+         
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(s0);
             while (rs.next()) {
@@ -232,9 +232,9 @@ public class Srpt_access_logs {
                 String created_at = DateType.convert_slash_datetime4(rs.getString(12));
                 String updated_at = rs.getString(13);
                 int count = rs.getInt(14);
-                String type = "Faculty";
+                String type = "Student";
                 if (!college.isEmpty()) {
-                    type = "Student";
+                    type = "Faculty";
                 }
 
                 Srpt_access_logs.field field = new field(id_no, fname, mname, lname, year_level, course, college, type, created_at, count);

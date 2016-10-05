@@ -7,6 +7,7 @@ package turnstile.dlg;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.io.File;
@@ -531,8 +532,50 @@ public class Dlg_turnstile extends javax.swing.JDialog {
                 Port.command(stmt, port);
             }
         });
+        KeyMapping.mapKeyWIFW(getSurface(),
+                KeyEvent.VK_F1, new KeyAction() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                login();
+            }
+        });
     }
+
     // </editor-fold>
+    private void login() {
+        Window p = (Window) this;
+        Dlg_login nd = Dlg_login.create(p, true);
+        nd.setTitle("");
+
+        nd.setCallback(new Dlg_login.Callback() {
+
+            @Override
+            public void ok(CloseDialog closeDialog, Dlg_login.OutputData data) {
+                closeDialog.ok();
+                settings();
+            }
+        });
+        nd.setLocationRelativeTo(this);
+        nd.setVisible(true);
+    }
+
+    private void settings() {
+        Window p = (Window) this;
+        Dlg_settings nd = Dlg_settings.create(p, true);
+        nd.setTitle("");
+
+        nd.setCallback(new Dlg_settings.Callback() {
+
+            @Override
+            public void ok(CloseDialog closeDialog, Dlg_settings.OutputData data) {
+                closeDialog.ok();
+
+            }
+        });
+        nd.setLocationRelativeTo(this);
+        nd.setVisible(true);
+    }
 
     private void search() {
         String id_no = jTextField1.getText();
@@ -541,6 +584,7 @@ public class Dlg_turnstile extends javax.swing.JDialog {
         String fname = "";
         String mname = "";
         String lname = "";
+        jTextField1.setFocusable(false);
         for (Students.to_students student : students) {
             if (id_no.equalsIgnoreCase(student.id_no)) {
                 jTextField1.setText(id_no);
@@ -583,7 +627,7 @@ public class Dlg_turnstile extends javax.swing.JDialog {
             jXLabel2.setText("");
             jXLabel1.setText("");
             jLabel2.setText(" Record not found!");
-            ImageIcon imageIcon = new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/turnstile/img/remove_male_user_256 (Custom).png")).getImage().getScaledInstance(320, 320, Image.SCALE_DEFAULT));
+            ImageIcon imageIcon = new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/turnstile/img/kTMR6Bnpc.png")).getImage().getScaledInstance(320, 320, Image.SCALE_DEFAULT));
 
             jLabel1.setIcon(imageIcon);
 
@@ -616,7 +660,7 @@ public class Dlg_turnstile extends javax.swing.JDialog {
                 ImageIcon imageIcon = new ImageIcon(icon.getImage().getScaledInstance(320, 320, Image.SCALE_DEFAULT));
                 jLabel1.setIcon(imageIcon);
             } else {
-                ImageIcon imageIcon = new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/turnstile/img/user-icon (Custom).png")).getImage().getScaledInstance(320, 320, Image.SCALE_DEFAULT));
+                ImageIcon imageIcon = new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/turnstile/img/no-image-icon-15.png")).getImage().getScaledInstance(320, 320, Image.SCALE_DEFAULT));
                 jLabel1.setIcon(imageIcon);
 
             }
@@ -648,6 +692,7 @@ public class Dlg_turnstile extends javax.swing.JDialog {
                     ImageIcon imageIcon = new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/turnstile/img/user-icon (Custom).png")).getImage().getScaledInstance(320, 320, Image.SCALE_DEFAULT));
 
                     jLabel1.setIcon(imageIcon);
+                    jTextField1.setFocusable(true);
                     jTextField1.grabFocus();
                     jTextField1.selectAll();
                 }
