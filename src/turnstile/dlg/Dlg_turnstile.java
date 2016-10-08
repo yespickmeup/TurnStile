@@ -215,10 +215,6 @@ public class Dlg_turnstile extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
         jXLabel2 = new org.jdesktop.swingx.JXLabel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -230,6 +226,7 @@ public class Dlg_turnstile extends javax.swing.JDialog {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jPanel2.setPreferredSize(new java.awt.Dimension(320, 320));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/turnstile/img/user-icon (Custom).png"))); // NOI18N
 
@@ -241,7 +238,7 @@ public class Dlg_turnstile extends javax.swing.JDialog {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1)
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -362,60 +359,8 @@ public class Dlg_turnstile extends javax.swing.JDialog {
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-        );
-
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 150, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 62, Short.MAX_VALUE)
-        );
-
-        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 89, Short.MAX_VALUE)
-        );
-
-        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 150, Short.MAX_VALUE)
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -423,26 +368,16 @@ public class Dlg_turnstile extends javax.swing.JDialog {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, 0)
-                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -479,10 +414,6 @@ public class Dlg_turnstile extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
@@ -491,17 +422,16 @@ public class Dlg_turnstile extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
     private void myInit() {
         init_key();
-        students = Students.ret_data("");
-        staffs = Faculty_and_staffs.ret_data("");
+
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
+                ImageIcon imageIcon = new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/turnstile/img/user-icon (Custom).png")).getImage().getScaledInstance(320, 320, Image.SCALE_DEFAULT));
+                jLabel1.setIcon(imageIcon);
                 jTextField1.grabFocus();
             }
         });
     }
-    List<Students.to_students> students = new ArrayList();
-    List<Faculty_and_staffs.to_faculty_and_staffs> staffs = new ArrayList();
 
     public void do_pass() {
 
@@ -527,9 +457,53 @@ public class Dlg_turnstile extends javax.swing.JDialog {
 
             @Override
             public void actionPerformed(ActionEvent e) {
+                int id = 0;
+                String id_no1 = "0000000000";
+                String year_level = "";
+                String course = "";
+                String college = "";
+                int status = 1;
+                String created_by = "";
+                String updated_by = "";
+                String created_at = DateType.now();
+                String updated_at = DateType.now();
+                Access_logs.to_access_logs log = new Access_logs.to_access_logs(id, id_no1, "", "", "Student/Faculty", year_level, course, college, status, created_by, updated_by, created_at, updated_at);
+                Access_logs.add_data(log);
+//            
                 String stmt = System.getProperty("stmt", "01L");
                 String port = System.getProperty("port", "COM11");
-                Port.command(stmt, port);
+                try {
+                    Port.command(stmt, port);
+                } catch (Exception ex) {
+                    System.out.println("Port exception!...");
+                }
+            }
+        });
+        KeyMapping.mapKeyWIFW(getSurface(),
+                KeyEvent.VK_F11, new KeyAction() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int id = 0;
+                String id_no1 = "0000000001";
+                String year_level = "";
+                String course = "";
+                String college = "";
+                int status = 1;
+                String created_by = "";
+                String updated_by = "";
+                String created_at = DateType.now();
+                String updated_at = DateType.now();
+                Access_logs.to_access_logs log = new Access_logs.to_access_logs(id, id_no1, "", "", "Guest", year_level, course, college, status, created_by, updated_by, created_at, updated_at);
+                Access_logs.add_data(log);
+//            
+                String stmt = System.getProperty("stmt", "01L");
+                String port = System.getProperty("port", "COM11");
+                try {
+                    Port.command(stmt, port);
+                } catch (Exception ex) {
+                    System.out.println("Port exception!...");
+                }
             }
         });
         KeyMapping.mapKeyWIFW(getSurface(),
@@ -576,6 +550,8 @@ public class Dlg_turnstile extends javax.swing.JDialog {
         nd.setLocationRelativeTo(this);
         nd.setVisible(true);
     }
+    List<Students.to_students> students = new ArrayList();
+    List<Faculty_and_staffs.to_faculty_and_staffs> staffs = new ArrayList();
 
     private void search() {
         String id_no = jTextField1.getText();
@@ -585,25 +561,27 @@ public class Dlg_turnstile extends javax.swing.JDialog {
         String mname = "";
         String lname = "";
         jTextField1.setFocusable(false);
-        for (Students.to_students student : students) {
-            if (id_no.equalsIgnoreCase(student.id_no)) {
-                jTextField1.setText(id_no);
-                jTextField2.setText("Student");
-                jTextField3.setText(student.year_level);
-                jXLabel2.setText(student.course);
-                fname = student.fname;
-                mname = student.mname;
-                lname = student.lname;
-                jXLabel1.setText("");
-                String name = " " + student.lname + ", " + student.fname + " " + student.mname;
-                jLabel2.setText(name);
-                exists = 1;
-                group = 0; //student
-                break;
-            }
-        }
-        for (Faculty_and_staffs.to_faculty_and_staffs staff : staffs) {
-            if (id_no.equalsIgnoreCase(staff.id_no)) {
+
+        students = Students.ret_data(" where id_no = '" + id_no + "' limit 1");
+
+        if (!students.isEmpty()) {
+            Students.to_students student = students.get(0);
+            jTextField1.setText(id_no);
+            jTextField2.setText("Student");
+            jTextField3.setText(student.year_level);
+            jXLabel2.setText(student.course);
+            fname = student.fname;
+            mname = student.mname;
+            lname = student.lname;
+            jXLabel1.setText("");
+            String name = " " + student.lname + ", " + student.fname + " " + student.mname;
+            jLabel2.setText(name);
+            exists = 1;
+            group = 0; //student
+        } else {
+            staffs = Faculty_and_staffs.ret_data(" where id_no = '" + id_no + "' limit 1");
+            if (!staffs.isEmpty()) {
+                Faculty_and_staffs.to_faculty_and_staffs staff = staffs.get(0);
                 jTextField1.setText(id_no);
                 jTextField2.setText("Faculty");
                 jXLabel1.setText(staff.college);
@@ -616,7 +594,6 @@ public class Dlg_turnstile extends javax.swing.JDialog {
                 jLabel2.setText(name);
                 exists = 1;
                 group = 1; //faculty
-                break;
             }
         }
 
@@ -628,7 +605,6 @@ public class Dlg_turnstile extends javax.swing.JDialog {
             jXLabel1.setText("");
             jLabel2.setText(" Record not found!");
             ImageIcon imageIcon = new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/turnstile/img/kTMR6Bnpc.png")).getImage().getScaledInstance(320, 320, Image.SCALE_DEFAULT));
-
             jLabel1.setIcon(imageIcon);
 
         } else {
@@ -636,7 +612,6 @@ public class Dlg_turnstile extends javax.swing.JDialog {
 //            insert to database
             int id = 0;
             String id_no1 = jTextField1.getText();
-
             String year_level = jTextField3.getText();
             String course = jXLabel2.getText();
             String college = jXLabel1.getText();
@@ -650,20 +625,36 @@ public class Dlg_turnstile extends javax.swing.JDialog {
 //            
             String stmt = System.getProperty("stmt", "01L");
             String port = System.getProperty("port", "COM11");
-            Port.command(stmt, port);
-            String home = System.getProperty("img_path", "");
+            try {
+                Port.command(stmt, port);
+            } catch (Exception e) {
+                System.out.println("Port exception!...");
+            }
+
+            String home = System.getProperty("user.home", "");
+
             String path_to_student = home + "\\Student_ID_Number\\";
-            path_to_student = path_to_student + "\\" + id_no + ".JPG";
+            path_to_student = path_to_student + "" + id_no + ".jpg";
+
+//            System.out.println("path: " + path_to_student);
             File f = new File(path_to_student);
             if (f.exists()) {
-                ImageIcon icon = new ImageIcon(path_to_student);
-                ImageIcon imageIcon = new ImageIcon(icon.getImage().getScaledInstance(320, 320, Image.SCALE_DEFAULT));
-                jLabel1.setIcon(imageIcon);
+                System.out.println("exists");
+                final ImageIcon icon = new ImageIcon(path_to_student);
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        ImageIcon imageIcon = new ImageIcon(icon.getImage().getScaledInstance(320, 320, Image.SCALE_DEFAULT));
+                        jLabel1.setIcon(imageIcon);
+                    }
+                });
+
             } else {
                 ImageIcon imageIcon = new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/turnstile/img/no-image-icon-15.png")).getImage().getScaledInstance(320, 320, Image.SCALE_DEFAULT));
                 jLabel1.setIcon(imageIcon);
-
             }
+//            jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maytopacka\\Student_ID_Number\\15-1-00364.JPG"));
+
         }
 
         clear();
@@ -671,6 +662,39 @@ public class Dlg_turnstile extends javax.swing.JDialog {
     int interval = 1;
 
     private void clear() {
+        int delay = 1000;
+        int period = 1000;
+        final Timer timer = new Timer();
+
+        timer.scheduleAtFixedRate(new TimerTask() {
+
+            @Override
+            public void run() {
+//                System.out.println("interval: " + interval);
+                if (interval == 1) {
+                    timer.cancel();
+                    interval = 0;
+                    jTextField1.setText("");
+                    jTextField2.setText("");
+                    jTextField3.setText("");
+                    jXLabel2.setText("");
+                    jXLabel1.setText("");
+                    jLabel2.setText(" Start search...");
+                    ImageIcon imageIcon = new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/turnstile/img/user-icon (Custom).png")).getImage().getScaledInstance(320, 320, Image.SCALE_DEFAULT));
+
+                    jLabel1.setIcon(imageIcon);
+                    jTextField1.setFocusable(true);
+                    jTextField1.grabFocus();
+                    jTextField1.selectAll();
+                }
+                interval++;
+
+            }
+        }, delay, period);
+
+    }
+
+    private void student() {
         int delay = 1000;
         int period = 1000;
         final Timer timer = new Timer();
@@ -702,5 +726,4 @@ public class Dlg_turnstile extends javax.swing.JDialog {
         }, delay, period);
 
     }
-
 }
