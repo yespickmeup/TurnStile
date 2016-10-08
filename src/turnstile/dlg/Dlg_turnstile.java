@@ -24,6 +24,7 @@ import mijzcx.synapse.desk.utils.KeyMapping.KeyAction;
 import synsoftech.fields.Field;
 import turnstile.access_logs.Access_logs;
 import turnstile.faculty_and_staffs.Faculty_and_staffs;
+import turnstile.reports.Dlg_statistics;
 import turnstile.students.Students;
 import turnstile.util.DateType;
 import turnstile.util.Port;
@@ -458,7 +459,7 @@ public class Dlg_turnstile extends javax.swing.JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int id = 0;
-                String id_no1 = "0000000000";
+                String id_no1 = "0000000001";
                 String year_level = "";
                 String course = "";
                 String college = "";
@@ -467,7 +468,7 @@ public class Dlg_turnstile extends javax.swing.JDialog {
                 String updated_by = "";
                 String created_at = DateType.now();
                 String updated_at = DateType.now();
-                Access_logs.to_access_logs log = new Access_logs.to_access_logs(id, id_no1, "", "", "Student/Faculty", year_level, course, college, status, created_by, updated_by, created_at, updated_at);
+                Access_logs.to_access_logs log = new Access_logs.to_access_logs(id, id_no1, "", "", "Student", year_level, course, college, status, created_by, updated_by, created_at, updated_at);
                 Access_logs.add_data(log);
 //            
                 String stmt = System.getProperty("stmt", "01L");
@@ -485,7 +486,34 @@ public class Dlg_turnstile extends javax.swing.JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int id = 0;
-                String id_no1 = "0000000001";
+                String id_no1 = "0000000002";
+                String year_level = "";
+                String course = "";
+                String college = "";
+                int status = 1;
+                String created_by = "";
+                String updated_by = "";
+                String created_at = DateType.now();
+                String updated_at = DateType.now();
+                Access_logs.to_access_logs log = new Access_logs.to_access_logs(id, id_no1, "", "", "Faculty/Staff", year_level, course, college, status, created_by, updated_by, created_at, updated_at);
+                Access_logs.add_data(log);
+//            
+                String stmt = System.getProperty("stmt", "01L");
+                String port = System.getProperty("port", "COM11");
+                try {
+                    Port.command(stmt, port);
+                } catch (Exception ex) {
+                    System.out.println("Port exception!...");
+                }
+            }
+        });
+        KeyMapping.mapKeyWIFW(getSurface(),
+                KeyEvent.VK_F12, new KeyAction() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int id = 0;
+                String id_no1 = "0000000003";
                 String year_level = "";
                 String course = "";
                 String college = "";
@@ -514,6 +542,31 @@ public class Dlg_turnstile extends javax.swing.JDialog {
                 login();
             }
         });
+        KeyMapping.mapKeyWIFW(getSurface(),
+                KeyEvent.VK_F5, new KeyAction() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                statistics();
+            }
+        });
+    }
+
+    private void statistics() {
+        Window p = (Window) this;
+        Dlg_statistics nd = Dlg_statistics.create(p, true);
+        nd.setTitle("");
+
+        nd.setCallback(new Dlg_statistics.Callback() {
+
+            @Override
+            public void ok(CloseDialog closeDialog, Dlg_statistics.OutputData data) {
+                closeDialog.ok();
+
+            }
+        });
+        nd.setLocationRelativeTo(this);
+        nd.setVisible(true);
     }
 
     // </editor-fold>

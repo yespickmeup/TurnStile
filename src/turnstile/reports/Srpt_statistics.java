@@ -6,8 +6,12 @@
 package turnstile.reports;
 
 import java.io.InputStream;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import mijzcx.synapse.desk.utils.Application;
 import mijzcx.synapse.desk.utils.JasperUtil;
@@ -16,6 +20,10 @@ import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.swing.JRViewer;
 
+import turnstile.access_logs.Access_logs;
+import turnstile.access_logs.Access_logs.to_access_logs;
+import turnstile.util.DateType;
+
 /**
  *
  * @author Maytopacka
@@ -23,9 +31,10 @@ import net.sf.jasperreports.swing.JRViewer;
 public class Srpt_statistics {
 
     public final List<field> fields;
-
-    public Srpt_statistics() {
+    public final String date;
+    public Srpt_statistics(String date) {
         this.fields = new ArrayList();
+        this.date=date;
     }
 
 //    Faculty and Staff
@@ -177,31 +186,127 @@ public class Srpt_statistics {
     }
 
     public static void main(String[] args) {
+        String where = " where Date(created_at) between '" + "2016-10-08" + "' and '" + "2016-10-08" + "' ";
+        List<to_access_logs> logs = Access_logs.ret_data(where);
 
         List<field> fields = new ArrayList();
-        for (int i = 0; i < 10; i++) {
-            String date = "October 7,2016 (Monday)" + i;
-            int fs_am_08_12 = 50;
-            int fs_am_12_01 = 100;
-            int fs_pm_01_05 = 150;
-            int fs_pm_05_08 = 200;
-            int s_am_08_12 = 90;
-            int s_am_12_01 = 95;
-            int s_pm_01_05 = 100;
-            int s_pm_05_08 = 105;
-            int g_am_08_12 = 110;
-            int g_am_12_01 = 210;
-            int g_pm_01_05 = 215;
-            int g_pm_05_08 = 220;
-            field field = new field(date, fs_am_08_12, fs_am_12_01, fs_pm_01_05, fs_pm_05_08, s_am_08_12, s_am_12_01, s_pm_01_05, s_pm_05_08, g_am_08_12, g_am_12_01, g_pm_01_05, g_pm_05_08);
-            fields.add(field);
+        Date date = new Date();
+        try {
+            date = DateType.sf.parse("2016-10-08");
+        } catch (ParseException ex) {
+            Logger.getLogger(Srpt_statistics.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Srpt_statistics rpt = new Srpt_statistics();
+        int fs_am_08_12 = 0;
+        int fs_am_12_01 = 0;
+        int fs_pm_01_05 = 0;
+        int fs_pm_05_08 = 0;
+        int s_am_08_12 = 0;
+        int s_am_12_01 = 0;
+        int s_pm_01_05 = 0;
+        int s_pm_05_08 = 0;
+        int g_am_08_12 = 0;
+        int g_am_12_01 = 0;
+        int g_pm_01_05 = 0;
+        int g_pm_05_08 = 0;
+
+        Date min_f_08_00 = Srpt_statistics.min(date, "08" + ":" + "00" + ":00");
+        Date max_f_12_00 = Srpt_statistics.max(date, "12" + ":" + "00" + ":00");
+
+        Date min_f_12_01 = Srpt_statistics.min(date, "12" + ":" + "01" + ":00");
+        Date max_f_13_30 = Srpt_statistics.max(date, "13" + ":" + "30" + ":00");
+
+        Date min_f_13_31 = Srpt_statistics.min(date, "13" + ":" + "31" + ":00");
+        Date max_f_17_30 = Srpt_statistics.max(date, "17" + ":" + "30" + ":00");
+
+        Date min_f_17_31 = Srpt_statistics.min(date, "17" + ":" + "31" + ":00");
+        Date max_f_20_00 = Srpt_statistics.max(date, "20" + ":" + "00" + ":00");
+
+        for (to_access_logs to : logs) {
+            try {
+                Date d = DateType.datetime.parse(to.created_at);
+
+                if (to.id_no.equalsIgnoreCase("0000000002") || !to.college.isEmpty()) {
+                    if (d.after(min_f_08_00) && d.before(max_f_12_00)) {
+                        fs_am_08_12++;
+                    }
+                    if (d.after(min_f_12_01) && d.before(max_f_13_30)) {
+                        fs_am_12_01++;
+                    }
+                    if (d.after(min_f_13_31) && d.before(max_f_17_30)) {
+                        fs_pm_01_05++;
+                    }
+                    if (d.after(min_f_17_31) && d.before(max_f_20_00)) {
+                        fs_pm_05_08++;
+                    }
+                }
+                if (to.id_no.equalsIgnoreCase("0000000001") || !to.course.isEmpty()) {
+                    if (d.after(min_f_08_00) && d.before(max_f_12_00)) {
+                        s_am_08_12++;
+                    }
+                    if (d.after(min_f_12_01) && d.before(max_f_13_30)) {
+                        s_am_12_01++;
+                    }
+                    if (d.after(min_f_13_31) && d.before(max_f_17_30)) {
+                        s_pm_01_05++;
+                    }
+                    if (d.after(min_f_17_31) && d.before(max_f_20_00)) {
+                        s_pm_05_08++;
+                    }
+                }
+                if (to.id_no.equalsIgnoreCase("0000000003")) {
+                    if (d.after(min_f_08_00) && d.before(max_f_12_00)) {
+                        g_am_08_12++;
+                    }
+                    if (d.after(min_f_12_01) && d.before(max_f_13_30)) {
+                        g_am_12_01++;
+                    }
+                    if (d.after(min_f_13_31) && d.before(max_f_17_30)) {
+                        g_pm_01_05++;
+                    }
+                    if (d.after(min_f_17_31) && d.before(max_f_20_00)) {
+                        g_pm_05_08++;
+                    }
+                }
+
+            } catch (ParseException ex) {
+                Logger.getLogger(Srpt_statistics.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+     
+        field field = new field("" + date, fs_am_08_12, fs_am_12_01, fs_pm_01_05, fs_pm_05_08, s_am_08_12, s_am_12_01, s_pm_01_05, s_pm_05_08, g_am_08_12, g_am_12_01, g_pm_01_05, g_pm_05_08);
+        fields.add(field);
+        Srpt_statistics rpt = new Srpt_statistics("" + date);
         rpt.fields.addAll(fields);
         String jrxml = "rpt_statistics.jrxml";
         JRViewer viewer = get_viewer(rpt, jrxml);
         JFrame f = Application.launchMainFrame3(viewer, "Sample", true);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public static Date min(Date date, String stmt) {
+        String min_faculty = DateType.sf.format(date);
+        min_faculty = min_faculty + " " + stmt;
+        Date min_f = new Date();
+        try {
+            min_f = DateType.datetime.parse(min_faculty);
+
+        } catch (ParseException ex) {
+            Logger.getLogger(Srpt_statistics.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return min_f;
+    }
+
+    public static Date max(Date date, String stmt) {
+
+        String max_faculty = DateType.sf.format(date);
+        max_faculty = max_faculty + " " + stmt;
+        Date max_f = new Date();
+        try {
+            max_f = DateType.datetime.parse(max_faculty);
+        } catch (ParseException ex) {
+            Logger.getLogger(Srpt_statistics.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return max_f;
     }
 
     public static JasperReport compileJasper(String jrxml) {
@@ -223,4 +328,5 @@ public class Srpt_statistics {
                 JasperUtil.setParameter(to),
                 JasperUtil.makeDatasource(to.fields));
     }
+
 }

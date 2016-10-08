@@ -34,6 +34,7 @@ public class DateType {
     public static SimpleDateFormat day_1 = new SimpleDateFormat("EEEEEEEEEEE dd");
     public static SimpleDateFormat month_year = new SimpleDateFormat("MMMMMMMMMMM yyyy");
     public static SimpleDateFormat month_date = new SimpleDateFormat("MMMMMMMMMM dd, yyyy");
+    public static SimpleDateFormat month_date2 = new SimpleDateFormat("MMMMMMMMMM dd, yyyy (EEEEEEEEEEE)");
     public static SimpleDateFormat day_and_time = new SimpleDateFormat("MMMMMMMMMM dd, yyyy HH:mm aa");
     public static SimpleDateFormat slash = new SimpleDateFormat("MM/dd/yyyy");
     public static SimpleDateFormat slash_w_time = new SimpleDateFormat("MM/dd/yyyy HH:mm aa");

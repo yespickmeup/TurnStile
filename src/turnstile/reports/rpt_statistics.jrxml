@@ -3,6 +3,7 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<parameter name="date" class="java.lang.String"/>
 	<field name="date" class="java.lang.String"/>
 	<field name="fs_am_08_12" class="java.lang.Integer"/>
 	<field name="fs_am_12_01" class="java.lang.Integer"/>
@@ -29,7 +30,49 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="78" splitType="Stretch">
+			<textField>
+				<reportElement uuid="c162577f-c6fb-4a37-811c-81c41b16380e" x="39" y="37" width="195" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+					<paragraph leftIndent="2" rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="199f8e9a-d675-4932-951f-31d77549f091" x="0" y="0" width="234" height="20"/>
+				<box>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+					<paragraph leftIndent="2" rightIndent="2"/>
+				</textElement>
+				<text><![CDATA[Silliman University Library]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="199f8e9a-d675-4932-951f-31d77549f091" x="0" y="19" width="234" height="18"/>
+				<box>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+					<paragraph leftIndent="2" rightIndent="2"/>
+				</textElement>
+				<text><![CDATA[Access Control Logs Statistics]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="199f8e9a-d675-4932-951f-31d77549f091" x="0" y="37" width="39" height="15"/>
+				<box>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+					<paragraph leftIndent="2" rightIndent="2"/>
+				</textElement>
+				<text><![CDATA[Date:]]></text>
+			</staticText>
+		</band>
 	</title>
 	<pageHeader>
 		<band splitType="Stretch"/>
@@ -38,7 +81,7 @@
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="222" splitType="Stretch">
+		<band height="179" splitType="Stretch">
 			<textField>
 				<reportElement uuid="d087360a-60d3-4940-bda6-c4c24f129079" mode="Opaque" x="84" y="0" width="471" height="20" backcolor="#E7E7E7"/>
 				<box>
@@ -440,7 +483,7 @@
 				<textElement verticalAlignment="Middle">
 					<paragraph leftIndent="5" rightIndent="5"/>
 				</textElement>
-				<text><![CDATA[Total]]></text>
+				<text><![CDATA[Sub Total:]]></text>
 			</staticText>
 			<textField pattern="#,##0" isBlankWhenNull="false">
 				<reportElement uuid="5238170b-fdff-4fff-81ba-801be57a4145" mode="Transparent" x="84" y="120" width="100" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
@@ -481,7 +524,7 @@
 				<textElement verticalAlignment="Middle">
 					<paragraph leftIndent="5" rightIndent="5"/>
 				</textElement>
-				<text><![CDATA[Total]]></text>
+				<text><![CDATA[Sub Total:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="ca45b2a4-e363-44bd-bc61-e47bd08376a2" x="372" y="120" width="84" height="20"/>
@@ -494,7 +537,7 @@
 				<textElement verticalAlignment="Middle">
 					<paragraph leftIndent="5" rightIndent="5"/>
 				</textElement>
-				<text><![CDATA[Total]]></text>
+				<text><![CDATA[Sub Total:]]></text>
 			</staticText>
 			<textField pattern="#,##0" isBlankWhenNull="false">
 				<reportElement uuid="5238170b-fdff-4fff-81ba-801be57a4145" mode="Transparent" x="456" y="120" width="99" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
@@ -521,7 +564,7 @@
 				<textElement verticalAlignment="Middle">
 					<paragraph leftIndent="5" rightIndent="5"/>
 				</textElement>
-				<text><![CDATA[Sub Total:]]></text>
+				<text><![CDATA[Total:]]></text>
 			</staticText>
 			<textField pattern="#,##0" isBlankWhenNull="false">
 				<reportElement uuid="5238170b-fdff-4fff-81ba-801be57a4145" mode="Opaque" x="84" y="140" width="471" height="20" forecolor="#000000" backcolor="#E7E7E7"/>
@@ -546,6 +589,6 @@
 		<band splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch"/>
+		<band splitType="Stretch"/>
 	</summary>
 </jasperReport>
