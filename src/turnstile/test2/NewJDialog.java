@@ -5,9 +5,16 @@
  */
 package turnstile.test2;
 
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
 import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.SwingUtilities;
 import mijzcx.synapse.desk.utils.CloseDialog;
 import mijzcx.synapse.desk.utils.KeyMapping;
 import mijzcx.synapse.desk.utils.KeyMapping.KeyAction;
@@ -180,7 +187,7 @@ public class NewJDialog extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Guinness\\Student_ID_Number\\00-01-014E.JPG")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maytopacka\\Student_ID_Number\\00-01-001.JPG")); // NOI18N
 
         jButton1.setText("jButton1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -195,12 +202,10 @@ public class NewJDialog extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(83, 83, 83)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(69, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(133, 133, 133))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton1))
+                .addContainerGap(422, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,7 +214,7 @@ public class NewJDialog extends javax.swing.JDialog {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -229,6 +234,7 @@ public class NewJDialog extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
     private void myInit() {
         init_key();
+
     }
 
     public void do_pass() {
@@ -254,6 +260,21 @@ public class NewJDialog extends javax.swing.JDialog {
 
     // </editor-fold>
     private void change() {
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Guinness\\Student_ID_Number\\00-01-013E.JPG")); // NOI18N
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+
+//                    File file = new File("C:\\Users\\Guinness\\Student_ID_Number\\00-01-007E.JPG");
+//                    System.out.println("file: "+file);
+//                    Image image = ImageIO.read(file);
+//                    jLabel1.setIcon(new ImageIcon(image));
+                ImageIcon icon = new ImageIcon("C:\\Users\\Guinness\\Student_ID_Number\\00-01-007E.JPG");
+                jLabel1.setIcon((icon)); // NOI18N
+                jLabel1.updateUI();
+                System.out.println("icon: " + icon);
+
+            }
+        });
+
     }
 }

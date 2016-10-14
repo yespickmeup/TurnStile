@@ -32,9 +32,18 @@ public class Srpt_statistics {
 
     public final List<field> fields;
     public final String date;
-    public Srpt_statistics(String date) {
+    public final int total_students;
+    public final int total_faculty;
+    public final int total_guest;
+    public final int total;
+
+    public Srpt_statistics(String date, int total_students, int total_faculty, int total_guest, int total) {
         this.fields = new ArrayList();
-        this.date=date;
+        this.date = date;
+        this.total_students = total_students;
+        this.total_faculty = total_faculty;
+        this.total_guest = total_guest;
+        this.total = total;
     }
 
 //    Faculty and Staff
@@ -47,23 +56,23 @@ public class Srpt_statistics {
     public static class field {
 
         String date;
-        int fs_am_08_12;
-        int fs_am_12_01;
-        int fs_pm_01_05;
-        int fs_pm_05_08;
-        int s_am_08_12;
-        int s_am_12_01;
-        int s_pm_01_05;
-        int s_pm_05_08;
-        int g_am_08_12;
-        int g_am_12_01;
-        int g_pm_01_05;
-        int g_pm_05_08;
+        String fs_am_08_12;
+        String fs_am_12_01;
+        String fs_pm_01_05;
+        String fs_pm_05_08;
+        String s_am_08_12;
+        String s_am_12_01;
+        String s_pm_01_05;
+        String s_pm_05_08;
+        String g_am_08_12;
+        String g_am_12_01;
+        String g_pm_01_05;
+        String g_pm_05_08;
 
         public field() {
         }
 
-        public field(String date, int fs_am_08_12, int fs_am_12_01, int fs_pm_01_05, int fs_pm_05_08, int s_am_08_12, int s_am_12_01, int s_pm_01_05, int s_pm_05_08, int g_am_08_12, int g_am_12_01, int g_pm_01_05, int g_pm_05_08) {
+        public field(String date, String fs_am_08_12, String fs_am_12_01, String fs_pm_01_05, String fs_pm_05_08, String s_am_08_12, String s_am_12_01, String s_pm_01_05, String s_pm_05_08, String g_am_08_12, String g_am_12_01, String g_pm_01_05, String g_pm_05_08) {
             this.date = date;
             this.fs_am_08_12 = fs_am_08_12;
             this.fs_am_12_01 = fs_am_12_01;
@@ -87,99 +96,99 @@ public class Srpt_statistics {
             this.date = date;
         }
 
-        public int getFs_am_08_12() {
+        public String getFs_am_08_12() {
             return fs_am_08_12;
         }
 
-        public void setFs_am_08_12(int fs_am_08_12) {
+        public void setFs_am_08_12(String fs_am_08_12) {
             this.fs_am_08_12 = fs_am_08_12;
         }
 
-        public int getFs_am_12_01() {
+        public String getFs_am_12_01() {
             return fs_am_12_01;
         }
 
-        public void setFs_am_12_01(int fs_am_12_01) {
+        public void setFs_am_12_01(String fs_am_12_01) {
             this.fs_am_12_01 = fs_am_12_01;
         }
 
-        public int getFs_pm_01_05() {
+        public String getFs_pm_01_05() {
             return fs_pm_01_05;
         }
 
-        public void setFs_pm_01_05(int fs_pm_01_05) {
+        public void setFs_pm_01_05(String fs_pm_01_05) {
             this.fs_pm_01_05 = fs_pm_01_05;
         }
 
-        public int getFs_pm_05_08() {
+        public String getFs_pm_05_08() {
             return fs_pm_05_08;
         }
 
-        public void setFs_pm_05_08(int fs_pm_05_08) {
+        public void setFs_pm_05_08(String fs_pm_05_08) {
             this.fs_pm_05_08 = fs_pm_05_08;
         }
 
-        public int getS_am_08_12() {
+        public String getS_am_08_12() {
             return s_am_08_12;
         }
 
-        public void setS_am_08_12(int s_am_08_12) {
+        public void setS_am_08_12(String s_am_08_12) {
             this.s_am_08_12 = s_am_08_12;
         }
 
-        public int getS_am_12_01() {
+        public String getS_am_12_01() {
             return s_am_12_01;
         }
 
-        public void setS_am_12_01(int s_am_12_01) {
+        public void setS_am_12_01(String s_am_12_01) {
             this.s_am_12_01 = s_am_12_01;
         }
 
-        public int getS_pm_01_05() {
+        public String getS_pm_01_05() {
             return s_pm_01_05;
         }
 
-        public void setS_pm_01_05(int s_pm_01_05) {
+        public void setS_pm_01_05(String s_pm_01_05) {
             this.s_pm_01_05 = s_pm_01_05;
         }
 
-        public int getS_pm_05_08() {
+        public String getS_pm_05_08() {
             return s_pm_05_08;
         }
 
-        public void setS_pm_05_08(int s_pm_05_08) {
+        public void setS_pm_05_08(String s_pm_05_08) {
             this.s_pm_05_08 = s_pm_05_08;
         }
 
-        public int getG_am_08_12() {
+        public String getG_am_08_12() {
             return g_am_08_12;
         }
 
-        public void setG_am_08_12(int g_am_08_12) {
+        public void setG_am_08_12(String g_am_08_12) {
             this.g_am_08_12 = g_am_08_12;
         }
 
-        public int getG_am_12_01() {
+        public String getG_am_12_01() {
             return g_am_12_01;
         }
 
-        public void setG_am_12_01(int g_am_12_01) {
+        public void setG_am_12_01(String g_am_12_01) {
             this.g_am_12_01 = g_am_12_01;
         }
 
-        public int getG_pm_01_05() {
+        public String getG_pm_01_05() {
             return g_pm_01_05;
         }
 
-        public void setG_pm_01_05(int g_pm_01_05) {
+        public void setG_pm_01_05(String g_pm_01_05) {
             this.g_pm_01_05 = g_pm_01_05;
         }
 
-        public int getG_pm_05_08() {
+        public String getG_pm_05_08() {
             return g_pm_05_08;
         }
 
-        public void setG_pm_05_08(int g_pm_05_08) {
+        public void setG_pm_05_08(String g_pm_05_08) {
             this.g_pm_05_08 = g_pm_05_08;
         }
 
@@ -272,15 +281,26 @@ public class Srpt_statistics {
                 Logger.getLogger(Srpt_statistics.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-     
-        field field = new field("" + date, fs_am_08_12, fs_am_12_01, fs_pm_01_05, fs_pm_05_08, s_am_08_12, s_am_12_01, s_pm_01_05, s_pm_05_08, g_am_08_12, g_am_12_01, g_pm_01_05, g_pm_05_08);
+        int total_students = 0;
+        int total_faculty = 0;
+        int total_guest = 0;
+        int total = 0;
+
+        field field = new field("" + date, empty(fs_am_08_12), empty(fs_am_12_01), empty(fs_pm_01_05), empty(fs_pm_05_08), empty(s_am_08_12), empty(s_am_12_01), empty(s_pm_01_05), empty(s_pm_05_08), empty(g_am_08_12), empty(g_am_12_01), empty(g_pm_01_05), empty(g_pm_05_08));
         fields.add(field);
-        Srpt_statistics rpt = new Srpt_statistics("" + date);
+        Srpt_statistics rpt = new Srpt_statistics("" + date, total_students, total_faculty, total_guest, total);
         rpt.fields.addAll(fields);
         String jrxml = "rpt_statistics.jrxml";
         JRViewer viewer = get_viewer(rpt, jrxml);
         JFrame f = Application.launchMainFrame3(viewer, "Sample", true);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    private static String empty(int number) {
+        if (number == 0) {
+            return "";
+        }
+        return "" + number;
     }
 
     public static Date min(Date date, String stmt) {
