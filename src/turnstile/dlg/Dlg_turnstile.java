@@ -426,6 +426,7 @@ public class Dlg_turnstile extends javax.swing.JDialog {
             @Override
             public void run() {
                 ImageIcon imageIcon = new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/turnstile/img/user-icon (Custom).png")).getImage().getScaledInstance(420, 420, Image.SCALE_DEFAULT));
+               
                 jLabel1.setIcon(imageIcon);
                 jTextField1.grabFocus();
             }
@@ -456,7 +457,11 @@ public class Dlg_turnstile extends javax.swing.JDialog {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Guinness\\Student_ID_Number\\00-01-013E.JPG")); // NOI18N
+//                 ImageIcon imageIcon = new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/turnstile/img/user-icon (Custom).png")).getImage().getScaledInstance(420, 420, Image.SCALE_DEFAULT));
+//               
+//                jXImagePanel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Guinness\\Student_ID_Number\\00-01-013E.JPG")); // NOI18N
+//           
+//                jXImagePanel1.setImage(imageIcon.getImage());
             }
         });
         KeyMapping.mapKeyWIFW(getSurface(),
@@ -691,11 +696,11 @@ public class Dlg_turnstile extends javax.swing.JDialog {
             String home = System.getProperty("user.home", "");
 
             String path_to_student = home + "\\Student_ID_Number\\";
-            path_to_student = path_to_student + "" + id_no + ".jpg";
+            path_to_student = path_to_student + "" + id_no + ".JPG";
 
 //            System.out.println("path: " + path_to_student);
             File f = new File(path_to_student);
-
+            final String  aw = path_to_student;
             if (f.exists()) {
                 System.out.println("exists: " + path_to_student);
                 jLabel1.setIcon(new javax.swing.ImageIcon(path_to_student)); // NOI18N
@@ -705,9 +710,7 @@ public class Dlg_turnstile extends javax.swing.JDialog {
                     public void run() {
                         ImageIcon imageIcon = new ImageIcon(icon.getImage().getScaledInstance(420, 420, Image.SCALE_DEFAULT));
                         jLabel1.setIcon(imageIcon);
-                        
-                        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maytopacka\\Student_ID_Number\\00-01-001.JPG"));
-                        jLabel1.updateUI();
+                       
                     }
                 });
 

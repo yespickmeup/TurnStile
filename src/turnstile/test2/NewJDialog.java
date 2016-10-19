@@ -9,10 +9,10 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.io.File;
-import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
 import mijzcx.synapse.desk.utils.CloseDialog;
@@ -182,12 +182,11 @@ public class NewJDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jXImageView1 = new org.jdesktop.swingx.JXImageView();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maytopacka\\Student_ID_Number\\00-01-001.JPG")); // NOI18N
 
         jButton1.setText("jButton1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -196,25 +195,41 @@ public class NewJDialog extends javax.swing.JDialog {
             }
         });
 
+        javax.swing.GroupLayout jXImageView1Layout = new javax.swing.GroupLayout(jXImageView1);
+        jXImageView1.setLayout(jXImageView1Layout);
+        jXImageView1Layout.setHorizontalGroup(
+            jXImageView1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jXImageView1Layout.setVerticalGroup(
+            jXImageView1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 290, Short.MAX_VALUE)
+        );
+
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(83, 83, 83)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton1))
-                .addContainerGap(422, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
+                    .addComponent(jXImageView1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(163, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(jLabel1)
+                .addGap(47, 47, 47)
+                .addComponent(jXImageView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -231,6 +246,7 @@ public class NewJDialog extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private org.jdesktop.swingx.JXImageView jXImageView1;
     // End of variables declaration//GEN-END:variables
     private void myInit() {
         init_key();
@@ -268,11 +284,40 @@ public class NewJDialog extends javax.swing.JDialog {
 //                    System.out.println("file: "+file);
 //                    Image image = ImageIO.read(file);
 //                    jLabel1.setIcon(new ImageIcon(image));
-                ImageIcon icon = new ImageIcon("C:\\Users\\Guinness\\Student_ID_Number\\00-01-007E.JPG");
-                jLabel1.setIcon((icon)); // NOI18N
-                jLabel1.updateUI();
-                System.out.println("icon: " + icon);
+//                ImageIcon icon = new ImageIcon("C:\\Users\\Maytopacka\\Pictures\\mr1.JPG");
+                String path_to_student = "C:\\Users\\Maytopacka\\Pictures\\Student_ID_Number\\00-01-007E.jpg";
+                File f = new File(path_to_student);
+                if (!f.exists()) {
+                    System.out.println("Cannot Locate!");
+                } else {
+                    System.out.println("Exists...");
+                    ImageIcon icon = new ImageIcon(path_to_student);
+                    jXImageView1.setImage((icon).getImage());
+                    System.out.println("icon: " + icon);
+                }
+//                File folder = new File("C:\\Users\\Maytopacka\\Pictures\\Student_ID_Number\\");
+//                final File[] listofFiles = folder.listFiles();
+//                int delay = 5000;
+//                int period = 5000;
 
+//                for (int i = 0; i < listofFiles.length; i++) {
+//                    final int ii = i;
+//                    if (listofFiles[i].isFile()) {
+//
+////                          
+//                        final Timer timer = new Timer();
+//                        timer.scheduleAtFixedRate(new TimerTask() {
+//                            @Override
+//                            public void run() {
+//                                System.out.println("File: " + listofFiles[ii].getAbsolutePath());
+//                                ImageIcon icon = new ImageIcon(listofFiles[ii].getAbsolutePath());
+//
+//                                jXImageView1.setImage((icon).getImage());
+//                                jLabel1.setText(listofFiles[ii].getAbsolutePath());
+//                            }
+//                        }, delay, period);
+//                    }
+//                }
             }
         });
 
