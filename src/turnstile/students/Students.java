@@ -316,7 +316,33 @@ public class Students {
 
                 String year_level = rs.getString(1);
 
-                System.out.println("year_level: " + year_level);
+//                System.out.println("year_level: " + year_level);
+                datas.add(year_level);
+            }
+            return datas;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            MyConnection.close();
+        }
+    }
+    public static List<String> courses(String where) {
+        List<String> datas = new ArrayList();
+
+        try {
+            Connection conn = MyConnection.connect();
+            String s0 = "select "
+                    + " course"
+                    + " from students"
+                    + " " + where;
+
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(s0);
+            while (rs.next()) {
+
+                String year_level = rs.getString(1);
+
+//                System.out.println("year_level: " + year_level);
                 datas.add(year_level);
             }
             return datas;

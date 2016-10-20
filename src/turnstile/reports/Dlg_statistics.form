@@ -145,7 +145,7 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jCheckBox3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="37" max="32767" attributes="0"/>
+                              <EmptySpace pref="190" max="32767" attributes="0"/>
                               <Component id="jButton4" min="-2" pref="85" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           </Group>
@@ -182,7 +182,7 @@
                                                   <Component id="jLabel11" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" max="-2" attributes="0">
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                   <Component id="jLabel12" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
                                                   <Component id="jDateChooser6" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
                                               </Group>
@@ -288,6 +288,9 @@
                           <Font name="Tahoma" size="14" style="0"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField2ActionPerformed"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Field.Combo()"/>
                       </AuxValues>
@@ -325,7 +328,7 @@
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="395" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="490" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>
@@ -429,7 +432,7 @@
                                   <Component id="jDateChooser4" min="-2" pref="161" max="-2" attributes="0"/>
                                   <Component id="jDateChooser3" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="429" max="32767" attributes="0"/>
+                              <EmptySpace pref="582" max="32767" attributes="0"/>
                               <Component id="jButton3" min="-2" pref="85" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           </Group>
@@ -524,7 +527,7 @@
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="403" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="498" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>
@@ -589,12 +592,12 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="803" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="956" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="529" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="624" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -611,12 +614,12 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="803" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="956" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="529" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="624" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>

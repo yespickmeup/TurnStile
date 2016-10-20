@@ -28,6 +28,7 @@ import net.sf.jasperreports.swing.JRViewer;
 import synsoftech.fields.Button;
 import synsoftech.fields.Field;
 import turnstile.access_logs.Access_logs;
+import static turnstile.reports.Srpt_statistics_students.ret_data;
 import turnstile.students.Students;
 import turnstile.util.DateType;
 import turnstile.util.DateUtils1;
@@ -277,6 +278,11 @@ public class Dlg_statistics extends javax.swing.JDialog {
         jCheckBox2.setText("All");
 
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel14.setText("Course:");
@@ -311,7 +317,7 @@ public class Dlg_statistics extends javax.swing.JDialog {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jCheckBox3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -341,9 +347,9 @@ public class Dlg_statistics extends javax.swing.JDialog {
                                     .addComponent(jDateChooser5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(1, 1, 1)
-                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jDateChooser6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jDateChooser6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 
@@ -357,7 +363,7 @@ public class Dlg_statistics extends javax.swing.JDialog {
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 395, Short.MAX_VALUE)
+            .addGap(0, 490, Short.MAX_VALUE)
         );
 
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
@@ -442,7 +448,7 @@ public class Dlg_statistics extends javax.swing.JDialog {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jDateChooser4, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 429, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 582, Short.MAX_VALUE)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -474,7 +480,7 @@ public class Dlg_statistics extends javax.swing.JDialog {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 403, Short.MAX_VALUE)
+            .addGap(0, 498, Short.MAX_VALUE)
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -529,11 +535,11 @@ public class Dlg_statistics extends javax.swing.JDialog {
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 803, Short.MAX_VALUE)
+            .addGap(0, 956, Short.MAX_VALUE)
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 529, Short.MAX_VALUE)
+            .addGap(0, 624, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Faculty", jPanel8);
@@ -542,11 +548,11 @@ public class Dlg_statistics extends javax.swing.JDialog {
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 803, Short.MAX_VALUE)
+            .addGap(0, 956, Short.MAX_VALUE)
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 529, Short.MAX_VALUE)
+            .addGap(0, 624, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Guest", jPanel9);
@@ -587,12 +593,16 @@ public class Dlg_statistics extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        preview_students();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         init_level();
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        init_courses();
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -636,15 +646,12 @@ public class Dlg_statistics extends javax.swing.JDialog {
     private void myInit() {
         init_key();
 
-        String where = " group by year_level order by year_level asc ";
-        levels = Students.levels(where);
 //         preview();
     }
 
     public void do_pass() {
         preview();
     }
-    
 
     // <editor-fold defaultstate="collapsed" desc="Key">
     private void disposed() {
@@ -691,6 +698,7 @@ public class Dlg_statistics extends javax.swing.JDialog {
             @Override
             public void run() {
                 String datetime = DateType.slash.format(jDateChooser3.getDate()) + " - " + DateType.slash.format(jDateChooser4.getDate());
+
                 List<Srpt_statistics.field> fields = new ArrayList();
                 List<Srpt_statistics.field> temp_fields = new ArrayList();
                 int total_students = 0;
@@ -703,14 +711,18 @@ public class Dlg_statistics extends javax.swing.JDialog {
                 List<String> dates = new ArrayList();
                 if (count >= 0) {
                     dates.add(DateType.sf.format(date_from));
+                    Date s = date_from;
+
                     for (int i = 0; i < count; i++) {
-                        Date s = date_from;
-                        Date d = DateUtils1.add_day(s, i + 1);
-                        dates.add(DateType.sf.format(d));
+
+                        DateUtils1.add_day(s, 1);
+                        dates.add(DateType.sf.format(s));
+
                     }
 
                     for (String datee : dates) {
                         String where = " where Date(created_at) = '" + datee + "' ";
+//                        System.out.println("date: " + datee);
                         List<Access_logs.to_access_logs> logs = Access_logs.ret_data(where);
 
                         Date date = new Date();
@@ -732,23 +744,23 @@ public class Dlg_statistics extends javax.swing.JDialog {
                         int g_pm_01_05 = 0;
                         int g_pm_05_08 = 0;
 
-                        Date min_f_08_00 = Srpt_statistics.min(date, "08" + ":" + "00" + ":00");
+                        Date min_f_08_00 = Srpt_statistics.min(date, "07" + ":" + "00" + ":00");
                         Date max_f_12_00 = Srpt_statistics.max(date, "12" + ":" + "00" + ":00");
 
-                        Date min_f_12_01 = Srpt_statistics.min(date, "12" + ":" + "01" + ":00");
+                        Date min_f_12_01 = Srpt_statistics.min(date, "12" + ":" + "00" + ":01");
                         Date max_f_13_30 = Srpt_statistics.max(date, "13" + ":" + "30" + ":00");
 
-                        Date min_f_13_31 = Srpt_statistics.min(date, "13" + ":" + "31" + ":00");
+                        Date min_f_13_31 = Srpt_statistics.min(date, "13" + ":" + "30" + ":01");
                         Date max_f_17_30 = Srpt_statistics.max(date, "17" + ":" + "30" + ":00");
 
-                        Date min_f_17_31 = Srpt_statistics.min(date, "17" + ":" + "31" + ":00");
-                        Date max_f_20_00 = Srpt_statistics.max(date, "20" + ":" + "00" + ":00");
+                        Date min_f_17_31 = Srpt_statistics.min(date, "17" + ":" + "30" + ":01");
+                        Date max_f_20_00 = Srpt_statistics.max(date, "22" + ":" + "00" + ":00");
 
                         for (Access_logs.to_access_logs to : logs) {
                             try {
                                 Date d = DateType.datetime.parse(to.created_at);
 
-                                if (to.id_no.equalsIgnoreCase("0000000002") || !to.college.isEmpty()) {
+                                if (to.access_type == 2) {
                                     if (d.after(min_f_08_00) && d.before(max_f_12_00)) {
                                         fs_am_08_12++;
                                     }
@@ -762,21 +774,20 @@ public class Dlg_statistics extends javax.swing.JDialog {
                                         fs_pm_05_08++;
                                     }
                                 }
-                                if (to.id_no.equalsIgnoreCase("0000000001") || !to.course.isEmpty()) {
+                                if (to.access_type == 1) {
                                     if (d.after(min_f_08_00) && d.before(max_f_12_00)) {
                                         s_am_08_12++;
-                                    }
-                                    if (d.after(min_f_12_01) && d.before(max_f_13_30)) {
+                                    } else if (d.after(min_f_12_01) && d.before(max_f_13_30)) {
                                         s_am_12_01++;
-                                    }
-                                    if (d.after(min_f_13_31) && d.before(max_f_17_30)) {
+                                    } else if (d.after(min_f_13_31) && d.before(max_f_17_30)) {
                                         s_pm_01_05++;
-                                    }
-                                    if (d.after(min_f_17_31) && d.before(max_f_20_00)) {
+                                    } else if (d.after(min_f_17_31) && d.before(max_f_20_00)) {
                                         s_pm_05_08++;
+                                    } else {
+                                        System.out.println(d);
                                     }
                                 }
-                                if (to.id_no.equalsIgnoreCase("0000000003")) {
+                                if (to.access_type == 3) {
                                     if (d.after(min_f_08_00) && d.before(max_f_12_00)) {
                                         g_am_08_12++;
                                     }
@@ -868,10 +879,140 @@ public class Dlg_statistics extends javax.swing.JDialog {
         }
     }
 
+    //<editor-fold defaultstate="collapsed" desc=" students ">
+    private void preview_students() {
+
+        jProgressBar2.setString("Loading... Please wait...");
+        jProgressBar2.setIndeterminate(true);
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                String date = DateType.slash.format(jDateChooser5.getDate()) + " - " + DateType.slash.format(jDateChooser6.getDate());
+                String date_from = DateType.sf.format(jDateChooser5.getDate());
+                String date_to = DateType.sf.format(jDateChooser6.getDate());
+                String where = " where "
+                        + " Date(created_at) between '" + date_from + "' and '" + date_to + "' and access_type = '1' "
+                        + " group by course order by course asc";
+                String where2 = " where Date(created_at) between '" + date_from + "' and '" + date_to + "' ";
+
+                List<Srpt_statistics_students.field> datas = ret_data(where);
+                List<Access_logs.to_access_logs> logs = Access_logs.ret_data(where2);
+                int over = 0;
+                int s1 = 0;
+                int s2 = 0;
+                int s3 = 0;
+                int s4 = 0;
+                int s5 = 0;
+                int s6 = 0;
+                int sI = 0;
+                int sII = 0;
+                int sIII = 0;
+                int sIV = 0;
+                int sV = 0;
+                for (Access_logs.to_access_logs log : logs) {
+                    if (log.year_level.equalsIgnoreCase("1")) {
+                        s1++;
+                    }
+                    if (log.year_level.equalsIgnoreCase("2")) {
+                        s2++;
+                    }
+                    if (log.year_level.equalsIgnoreCase("3")) {
+                        s3++;
+                    }
+                    if (log.year_level.equalsIgnoreCase("4")) {
+                        s4++;
+                    }
+                    if (log.year_level.equalsIgnoreCase("5")) {
+                        s5++;
+                    }
+                    if (log.year_level.equalsIgnoreCase("6")) {
+                        s6++;
+                    }
+                    if (log.year_level.equalsIgnoreCase("I")) {
+                        sI++;
+                    }
+                    if (log.year_level.equalsIgnoreCase("II")) {
+                        sII++;
+                    }
+                    if (log.year_level.equalsIgnoreCase("III")) {
+                        sIII++;
+                    }
+                    if (log.year_level.equalsIgnoreCase("IV")) {
+                        sIV++;
+                    }
+                    if (log.year_level.equalsIgnoreCase("V")) {
+                        sV++;
+                    }
+                    if (log.id_no.equalsIgnoreCase("0000000001")) {
+                        over++;
+                    }
+                }
+                int s_total = s1 + s2 + s3 + s4 + s5 + s6 + sI + sII + sIII + sIV + sV + over;
+                Srpt_statistics_students rpt = new Srpt_statistics_students(date, over, s1, s2, s3, s4, s5, s6, sI, sII, sIII, sIV, sV, s_total);
+                rpt.fields.addAll(datas);
+                String jrxml = "rpt_statistics_students.jrxml";
+                report_students(rpt, jrxml);
+                jProgressBar2.setIndeterminate(false);
+                jProgressBar2.setString("Finished...");
+            }
+        });
+
+        t.start();
+    }
+
+    private void report_students(final Srpt_statistics_students to, String jrxml_name) {
+        jPanel5.removeAll();
+        jPanel5.setLayout(new BorderLayout());
+        try {
+            JRViewer viewer = get_viewer_student(to, jrxml_name);
+            JPanel pnl = new JPanel();
+            pnl.add(viewer);
+            pnl.setVisible(true);
+            pnl.setVisible(true);
+            jPanel5.add(viewer);
+            jPanel5.updateUI();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static JRViewer get_viewer_student(Srpt_statistics_students to, String rpt_name) {
+        try {
+            return JasperUtil.getJasperViewer(
+                    compileJasper_student(rpt_name),
+                    JasperUtil.setParameter(to),
+                    JasperUtil.makeDatasource(to.fields));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+        }
+    }
+
+    public static JasperReport compileJasper_student(String rpt_name) {
+        try {
+            String jrxml = rpt_name;
+            InputStream is = Srpt_statistics_students.class.
+                    getResourceAsStream(jrxml);
+            JasperReport jasper = JasperCompileManager.compileReport(is);
+
+            return jasper;
+        } catch (JRException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+//</editor-fold>
     List<String> levels = new ArrayList();
 
     private void init_level() {
+        String where = "  group by year_level order by year_level asc ";
 
+        if (!jCheckBox1.isSelected()) {
+            where = " where year_level like '%" + jTextField1.getText() + "%' group by year_level order by year_level asc ";
+        }
+
+        levels = Students.levels(where);
         Object[][] obj = new Object[levels.size()][1];
         int i = 0;
         for (String to : levels) {
@@ -888,6 +1029,33 @@ public class Dlg_statistics extends javax.swing.JDialog {
             public void ok(TableRenderer.OutputData data) {
                 String to = levels.get(data.selected_row);
                 jTextField1.setText(to);
+            }
+        });
+    }
+    List<String> courses = new ArrayList();
+
+    private void init_courses() {
+        String where2 = " group by course order by course asc ";
+        if (!jCheckBox2.isSelected()) {
+            where2 = " where course like '%" + jTextField2.getText() + "%' group by course order by course asc ";
+        }
+        courses = Students.courses(where2);
+        Object[][] obj = new Object[courses.size()][1];
+        int i = 0;
+        for (String to : courses) {
+            obj[i][0] = " " + to;
+            i++;
+        }
+        JLabel[] labels = {};
+        int[] tbl_widths_customers = {jTextField2.getWidth()};
+        String[] col_names = {""};
+        TableRenderer tr = new TableRenderer();
+        TableRenderer.setPopup(jTextField2, obj, labels, tbl_widths_customers, col_names);
+        tr.setCallback(new TableRenderer.Callback() {
+            @Override
+            public void ok(TableRenderer.OutputData data) {
+                String to = courses.get(data.selected_row);
+                jTextField2.setText(to);
             }
         });
     }

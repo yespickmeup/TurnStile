@@ -37,8 +37,8 @@ public class Access_logs {
         public final String updated_by;
         public final String created_at;
         public final String updated_at;
-
-        public to_access_logs(int id, String id_no, String fname, String mname, String lname, String year_level, String course, String college, int status, String created_by, String updated_by, String created_at, String updated_at) {
+        public final int access_type;
+        public to_access_logs(int id, String id_no, String fname, String mname, String lname, String year_level, String course, String college, int status, String created_by, String updated_by, String created_at, String updated_at,int access_type) {
             this.id = id;
             this.id_no = id_no;
             this.fname = fname;
@@ -52,6 +52,7 @@ public class Access_logs {
             this.updated_by = updated_by;
             this.created_at = created_at;
             this.updated_at = updated_at;
+            this.access_type=access_type;
         }
     }
 
@@ -71,6 +72,7 @@ public class Access_logs {
                     + ",updated_by"
                     + ",created_at"
                     + ",updated_at"
+                    + ",access_type"
                     + ")values("
                     + ":id_no"
                     + ",:fname"
@@ -84,6 +86,7 @@ public class Access_logs {
                     + ",:updated_by"
                     + ",:created_at"
                     + ",:updated_at"
+                    + ",:access_type"
                     + ")";
 
             s0 = SqlStringUtil.parse(s0)
@@ -99,6 +102,7 @@ public class Access_logs {
                     .setString("updated_by", to_access_logs.updated_by)
                     .setString("created_at", to_access_logs.created_at)
                     .setString("updated_at", to_access_logs.updated_at)
+                    .setNumber("access_type",to_access_logs.access_type)
                     .ok();
 
             PreparedStatement stmt = conn.prepareStatement(s0);
@@ -127,6 +131,7 @@ public class Access_logs {
                     + ",updated_by= :updated_by "
                     + ",created_at= :created_at "
                     + ",updated_at= :updated_at "
+                    + ",access_type=:access_type"
                     + " where id='" + to_access_logs.id + "' "
                     + " ";
 
@@ -143,6 +148,7 @@ public class Access_logs {
                     .setString("updated_by", to_access_logs.updated_by)
                     .setString("created_at", to_access_logs.created_at)
                     .setString("updated_at", to_access_logs.updated_at)
+                    .setNumber("access_type",to_access_logs.access_type)
                     .ok();
 
             PreparedStatement stmt = conn.prepareStatement(s0);
@@ -191,6 +197,7 @@ public class Access_logs {
                     + ",updated_by"
                     + ",created_at"
                     + ",updated_at"
+                    + ",access_type"
                     + " from access_logs"
                     + " " + where;
 
@@ -210,8 +217,8 @@ public class Access_logs {
                 String updated_by = rs.getString(11);
                 String created_at = rs.getString(12);
                 String updated_at = rs.getString(13);
-
-                to_access_logs to = new to_access_logs(id, id_no, fname, mname, lname, year_level, course, college, status, created_by, updated_by, created_at, updated_at);
+                int access_type=rs.getInt(14);
+                to_access_logs to = new to_access_logs(id, id_no, fname, mname, lname, year_level, course, college, status, created_by, updated_by, created_at, updated_at,access_type);
                 datas.add(to);
             }
             return datas;
