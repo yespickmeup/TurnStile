@@ -189,7 +189,6 @@ public class Dlg_settings extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jButton1 = new Button.Default();
 
@@ -259,21 +258,6 @@ public class Dlg_settings extends javax.swing.JDialog {
         );
 
         jTabbedPane1.addTab("Users", jPanel5);
-
-        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 909, Short.MAX_VALUE)
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 490, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Report", jPanel7);
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -351,7 +335,6 @@ public class Dlg_settings extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
     private void myInit() {
@@ -379,9 +362,9 @@ public class Dlg_settings extends javax.swing.JDialog {
                 jPanel6.setLayout(new BorderLayout());
                 jPanel6.add(backup.getSurface());
 
-                Dlg_report_access_logs report = new Dlg_report_access_logs();
-                jPanel7.setLayout(new BorderLayout());
-                jPanel7.add(report.getSurface());
+//                Dlg_report_access_logs report = new Dlg_report_access_logs();
+//                jPanel7.setLayout(new BorderLayout());
+//                jPanel7.add(report.getSurface());
             }
         });
 
